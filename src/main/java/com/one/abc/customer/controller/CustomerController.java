@@ -14,7 +14,7 @@ import com.one.abc.customer.request.CustomerRequest;
 import com.one.abc.customer.service.CustomerService;
 
 @RestController
-@RequestMapping("/oneabc")
+@RequestMapping("/oneabc/adityabirla/api/v1/customer/info")
 public class CustomerController {
 
 	@Autowired
