@@ -3,6 +3,7 @@ package com.one.abc.customer.entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.one.abc.customer.entity.PinMgt;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -104,6 +106,9 @@ public class Customer {
 	
 	@Column(name = "Active")
 	private String active;
+
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+	private PinMgt mpin;
 	
 	
 	
