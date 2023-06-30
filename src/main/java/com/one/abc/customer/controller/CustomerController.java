@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.one.abc.customer.entity.Customer;
-import com.one.abc.customer.request.CustomerRequest;
 import com.one.abc.customer.service.CustomerService;
 
 @RestController
@@ -29,21 +29,10 @@ public class CustomerController {
 	}
 
 	@GetMapping("/customer")
-	public ResponseEntity<Customer> getCustomer(@RequestBody CustomerRequest CustomerRequest) {
-
-		Customer response = null;
-		String mob = CustomerRequest.getMobileNo();
-		String customerId = CustomerRequest.getCustomerId();
-
-		if (mob != null) {
-
-			response = customerService.getCustomerInfoByMob(mob);
-
-		}
-
-		// Customer response = customerService.saveCustomerInfo(customer);
-		return new ResponseEntity<Customer>(response, HttpStatus.CREATED);
-
+	public ResponseEntity<Customer> getCustomer(@RequestParam(name = "customerId", required = false) Long customerId,
+			@RequestParam(name = "mobileNumber") String mobileNumber) {
+		Customer customer = customerService.getCustomer(customerId, mobileNumber);
+		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 
 }

@@ -31,7 +31,7 @@ public class Customer {
 	private long id; 
  
 	
-	@Column(name = "MobileNumber")
+	@Column(name = "MobileNumber", unique = true)
 	private String mobileNumber;
 	
 	@Column(name = "FirstName")
