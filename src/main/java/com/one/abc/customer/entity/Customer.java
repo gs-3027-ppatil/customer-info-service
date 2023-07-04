@@ -91,11 +91,11 @@ public class Customer {
 	@Column(name = "LoanAmount")
 	private String loanAmount;
 	
-	@Column(name = "Createdby")
-	private String createdby;
+	@Column(name = "CreatedBy")
+	private String createdBy;
 	
-	@Column(name = "Createddate")
-	private Date createddate;
+	@Column(name = "CreatedDate")
+	private Date createdDate;
 	
 	@Column(name = "ModifiedBy")
 	private String modifiedBy;
@@ -237,12 +237,12 @@ public class Customer {
 		this.loanAmount = loanAmount;
 	}
 
-	public String getCreatedby() {
-		return createdby;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	 
@@ -286,12 +286,12 @@ public class Customer {
 
 	 
 
-	public Date getCreateddate() {
-		return createddate;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
-	public void setCreateddate(Date createddate) {
-		this.createddate = createddate;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	public Date getModififedDate() {
@@ -344,8 +344,8 @@ public class Customer {
 	public Customer(long id, String mobileNumber, String firstName, String lastName, Date dateOfBirth,
 			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String adharNumber, String email,
 			String gender, List<Address> address, String landmark, String pincode, OccupationType occupationType,
-			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdby,
-			Date createddate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
+			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdBy,
+			Date createdDate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
 		super();
 		this.id = id;
 		this.mobileNumber = mobileNumber;
@@ -366,8 +366,8 @@ public class Customer {
 		this.nriCustomer = nriCustomer;
 		this.monthlyIncome = monthlyIncome;
 		this.loanAmount = loanAmount;
-		this.createdby = createdby;
-		this.createddate = createddate;
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
 		this.modifiedBy = modifiedBy;
 		this.modififedDate = modififedDate;
 		this.active = active;
