@@ -11,4 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Errors {
 private List<ErrorResponseVO> errors;
+
+public List<ErrorResponseVO> getErrors() {
+	return errors;
+}
+
+public void setErrors(List<ErrorResponseVO> errors) {
+	this.errors = errors;
+}
+
+
 }

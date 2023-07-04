@@ -2,6 +2,8 @@ package com.one.abc.customer.entity;
 
  
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -46,7 +48,7 @@ public class Kyc {
 	private String videoKYC;
 	
 	@Column(name = "LastFetchedDT")
-	private String lastFetchedDT;
+	private Date lastFetchedDT;
 
 	
 	
@@ -99,13 +101,7 @@ public class Kyc {
 		this.videoKYC = videoKYC;
 	}
 
-	public String getLastFetchedDT() {
-		return lastFetchedDT;
-	}
-
-	public void setLastFetchedDT(String lastFetchedDT) {
-		this.lastFetchedDT = lastFetchedDT;
-	}
+	 
 
 	public Kyc() {
 		super();
@@ -113,7 +109,7 @@ public class Kyc {
 	}
 
 	public Kyc(long id, Customer customer, String permanentAddress, String digilockerStatus,
-			String digilockerCreatedDate, String videoKYC, String lastFetchedDT) {
+			String digilockerCreatedDate, String videoKYC, Date lastFetchedDT) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -123,6 +119,8 @@ public class Kyc {
 		this.videoKYC = videoKYC;
 		this.lastFetchedDT = lastFetchedDT;
 	}
+
+	 
 	
 }
 	

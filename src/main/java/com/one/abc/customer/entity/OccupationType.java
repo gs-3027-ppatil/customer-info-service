@@ -1,15 +1,12 @@
 package com.one.abc.customer.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -22,10 +19,17 @@ public class OccupationType {
 	@SequenceGenerator(name = "OccupationType_seq_gen", sequenceName = "OccupationType_seq")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "customer_id")
-	@JsonBackReference
-    private Customer customer;
+	
+	
+	//@ManyToOne(fetch = FetchType.LAZY)
+	//@JoinColumn(name = "customer_id")
+	//@JsonBackReference
+  //  private Customer customer;
+	
+	//@OneToMany(mappedBy = "OccupationType", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	// @JsonManagedReference 
+	
+	 
 	
 	
 	@Column(name = "OccupationType")
@@ -38,13 +42,13 @@ public class OccupationType {
 	private String createdby;
 
 	@Column(name = "CreatedDate")
-	private String createddate;
+	private Date createddate;
 
 	@Column(name = "ModifiedBy")
 	private String modifiedBy;
 
 	@Column(name = "ModififedDate")
-	private String modififedDate;
+	private Date modififedDate;
 
 	@Column(name = "Active")
 	private String active;
@@ -59,13 +63,7 @@ public class OccupationType {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+	 
 
 	public String getOccupationType() {
 		return occupationType;
@@ -91,13 +89,7 @@ public class OccupationType {
 		this.createdby = createdby;
 	}
 
-	public String getCreateddate() {
-		return createddate;
-	}
-
-	public void setCreateddate(String createddate) {
-		this.createddate = createddate;
-	}
+	 
 
 	public String getModifiedBy() {
 		return modifiedBy;
@@ -107,13 +99,7 @@ public class OccupationType {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public String getModififedDate() {
-		return modififedDate;
-	}
-
-	public void setModififedDate(String modififedDate) {
-		this.modififedDate = modififedDate;
-	}
+	 
 
 	public String getActive() {
 		return active;
@@ -128,11 +114,26 @@ public class OccupationType {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OccupationType(int id, Customer customer, String occupationType, String state, String createdby,
-			String createddate, String modifiedBy, String modififedDate, String active) {
+	public Date getCreateddate() {
+		return createddate;
+	}
+
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
+	}
+
+	public Date getModififedDate() {
+		return modififedDate;
+	}
+
+	public void setModififedDate(Date modififedDate) {
+		this.modififedDate = modififedDate;
+	}
+
+	public OccupationType(int id, String occupationType, String state, String createdby, Date createddate,
+			String modifiedBy, Date modififedDate, String active) {
 		super();
 		this.id = id;
-		this.customer = customer;
 		this.occupationType = occupationType;
 		this.state = state;
 		this.createdby = createdby;
@@ -141,6 +142,13 @@ public class OccupationType {
 		this.modififedDate = modififedDate;
 		this.active = active;
 	}
+
+	 
+
+	 
+	 
+
+	 
 	
 	
 	

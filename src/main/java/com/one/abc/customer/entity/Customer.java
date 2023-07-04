@@ -1,9 +1,9 @@
 package com.one.abc.customer.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.one.abc.customer.entity.PinMgt;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +12,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
@@ -21,9 +23,7 @@ import jakarta.persistence.Table;
 @Table(name = "T_Customer") 
 public class Customer {
 	
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	//private long id;
+	 
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
@@ -41,7 +41,7 @@ public class Customer {
 	private String lastName;
 	
 	@Column(name = "DOB")
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
@@ -64,21 +64,20 @@ public class Customer {
 	@Column(name = "Gender")
 	private String gender;
 	
-	//@OneToMany(cascade = CascadeType.ALL)  
-	//@JoinColumn(name="id")  
-	//@OrderColumn(name="AddressLine")  
-	//@Column(name = "AddressLine")
-	//private List<Address> addressLine;
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference 
+	private List<Address> address;
 	
 	@Column(name = "Landmark")
 	private String landmark;
 	
 	@Column(name = "Pincode")
 	private String pincode;
+	 
 	
-	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonManagedReference 
-	private List<OccupationType> occupationType; 
+	@ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="occupationId_id")
+    private  OccupationType occupationType;
 	
 	@Column(name = "CompanyName")
 	private String companyName;
@@ -96,16 +95,19 @@ public class Customer {
 	private String createdby;
 	
 	@Column(name = "Createddate")
-	private String createddate;
+	private Date createddate;
 	
 	@Column(name = "ModifiedBy")
 	private String modifiedBy;
 	
 	@Column(name = "ModififedDate")
-	private String modififedDate;
+	private Date modififedDate;
 	
 	@Column(name = "Active")
 	private String active;
+	
+	@Column(name = "enableDHA")
+	private String enableDHA;
 
 	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
 	private PinMgt mpin;
@@ -145,13 +147,7 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+	 
 
 	public List<Kyc> getKycCoustomer() {
 		return kycCoustomer;
@@ -249,13 +245,7 @@ public class Customer {
 		this.createdby = createdby;
 	}
 
-	public String getCreateddate() {
-		return createddate;
-	}
-
-	public void setCreateddate(String createddate) {
-		this.createddate = createddate;
-	}
+	 
 
 	public String getModifiedBy() {
 		return modifiedBy;
@@ -265,13 +255,7 @@ public class Customer {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public String getModififedDate() {
-		return modififedDate;
-	}
-
-	public void setModififedDate(String modififedDate) {
-		this.modififedDate = modififedDate;
-	}
+	 
 
 	public String getActive() {
 		return active;
@@ -290,12 +274,40 @@ public class Customer {
 	}
 
 	 
-	public List<OccupationType> getOccupationType() {
-		return occupationType;
+	 
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setOccupationType(List<OccupationType> occupationType) {
-		this.occupationType = occupationType;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	 
+
+	public Date getCreateddate() {
+		return createddate;
+	}
+
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
+	}
+
+	public Date getModififedDate() {
+		return modififedDate;
+	}
+
+	public void setModififedDate(Date modififedDate) {
+		this.modififedDate = modififedDate;
+	}
+
+	public PinMgt getMpin() {
+		return mpin;
+	}
+
+	public void setMpin(PinMgt mpin) {
+		this.mpin = mpin;
 	}
 
 	public Customer() {
@@ -303,11 +315,37 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(long id, String mobileNumber, String firstName, String lastName, String dateOfBirth,
+	public OccupationType getOccupationType() {
+		return occupationType;
+	}
+
+	public void setOccupationType(OccupationType occupationType) {
+		this.occupationType = occupationType;
+	}
+
+	public String getEnableDHA() {
+		return enableDHA;
+	}
+
+	public void setEnableDHA(String enableDHA) {
+		this.enableDHA = enableDHA;
+	}
+
+	 
+
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	public Customer(long id, String mobileNumber, String firstName, String lastName, Date dateOfBirth,
 			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String adharNumber, String email,
-			String gender, String landmark, String pincode, List<OccupationType> occupationType, String companyName,
-			boolean nriCustomer, String monthlyIncome, String loanAmount, String createdby, String createddate,
-			String modifiedBy, String modififedDate, String active) {
+			String gender, List<Address> address, String landmark, String pincode, OccupationType occupationType,
+			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdby,
+			Date createddate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
 		super();
 		this.id = id;
 		this.mobileNumber = mobileNumber;
@@ -320,6 +358,7 @@ public class Customer {
 		this.adharNumber = adharNumber;
 		this.email = email;
 		this.gender = gender;
+		this.address = address;
 		this.landmark = landmark;
 		this.pincode = pincode;
 		this.occupationType = occupationType;
@@ -332,10 +371,11 @@ public class Customer {
 		this.modifiedBy = modifiedBy;
 		this.modififedDate = modififedDate;
 		this.active = active;
+		this.enableDHA = enableDHA;
+		this.mpin = mpin;
 	}
 
 	 
- 
 	
 }
 	
