@@ -41,7 +41,7 @@ public class OccupationType {
 	private String modifiedBy;
 	 
 	@JsonDeserialize(using = DateHandler.class)
-	@Column(name = "modifiedbate")
+	@Column(name = "modifieddate")
 	private Date modifiedDate;
 
 	@Column(name = "active")
