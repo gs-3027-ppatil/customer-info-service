@@ -95,7 +95,7 @@ public class Customer {
 	@Column(name = "loanamount")
 	private String loanAmount;
 	
-	@Column(name = "Createdby")
+	@Column(name = "createdby")
 	private String createdBy;
 	
 	@JsonDeserialize(using = DateHandler.class)
