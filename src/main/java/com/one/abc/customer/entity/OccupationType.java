@@ -39,10 +39,10 @@ public class OccupationType {
 	private String state;
 
 	@Column(name = "CreatedBy")
-	private String createdby;
+	private String createdBy;
 
 	@Column(name = "CreatedDate")
-	private Date createddate;
+	private Date createdDate;
 
 	@Column(name = "ModifiedBy")
 	private String modifiedBy;
@@ -81,12 +81,12 @@ public class OccupationType {
 		this.state = state;
 	}
 
-	public String getCreatedby() {
-		return createdby;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
+	public void setCreatedby(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	 
@@ -115,11 +115,11 @@ public class OccupationType {
 	}
 
 	public Date getCreateddate() {
-		return createddate;
+		return createdDate;
 	}
 
 	public void setCreateddate(Date createddate) {
-		this.createddate = createddate;
+		this.createdDate = createddate;
 	}
 
 	public Date modifiedDate() {
@@ -130,14 +130,14 @@ public class OccupationType {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public OccupationType(int id, String occupationType, String state, String createdby, Date createddate,
+	public OccupationType(int id, String occupationType, String state, String createdBy, Date createdDate,
 			String modifiedBy, Date modifiedDate, String active) {
 		super();
 		this.id = id;
 		this.occupationType = occupationType;
 		this.state = state;
-		this.createdby = createdby;
-		this.createddate = createddate;
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
 		this.modifiedBy = modifiedBy;
 		this.modifiedDate = modifiedDate;
 		this.active = active;
