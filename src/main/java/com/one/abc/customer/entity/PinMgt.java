@@ -2,6 +2,8 @@ package com.one.abc.customer.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,25 +22,27 @@ public class PinMgt {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "CurrentMpin")
+	@Column(name = "currentMpin")
 	private String currentMpin;
 
-	@Column(name = "MpinExpiry")
+	@Column(name = "mpinExpiry")
 	private Date mpinExpiry;
 
-	@Column(name = "CreatedBy")
+	@Column(name = "createdBy")
 	private String createdBy;
 
-	@Column(name = "CreatedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "createdDate")
 	private Date createdDate;
 	
-	@Column(name = "ModifiedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "modifiedDate")
 	private Date modifiedDate;
 
-	@Column(name = "ModifiedBy")
+	@Column(name = "modifiedBy")
 	private String modifiedBy;
 	
-	@Column(name = "Active")
+	@Column(name = "active")
 	private String active;
 
 	@OneToOne(cascade = CascadeType.ALL)

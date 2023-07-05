@@ -26,10 +26,10 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "AddressLineOne")
+	@Column(name = "addresslineone")
 	private String addressLineOne;
 
-	@Column(name = "AddressLineTwo")
+	@Column(name = "addresslinetwo")
 	private String addressLineTwo;
 
 	@OneToMany(mappedBy = "address", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

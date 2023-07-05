@@ -31,22 +31,22 @@ public class LoanType {
     private Customer customer;
 	
 	
-	@Column(name = "LoanType")
+	@Column(name = "loantype")
 	private String loanType;
 	
-	@Column(name = "Createdby")
+	@Column(name = "createdby")
 	private String createdby;
 	
-	@Column(name = "Createddate")
+	@Column(name = "createddate")
 	private String createddate;
 	
-	@Column(name = "ModifiedBy")
+	@Column(name = "modifiedby")
 	private String modifiedBy;
 	
-	@Column(name = "ModififedDate")
+	@Column(name = "modififeddate")
 	private String modififedDate;
 	
-	@Column(name = "Active")
+	@Column(name = "active")
 	private String active;
 	
 	

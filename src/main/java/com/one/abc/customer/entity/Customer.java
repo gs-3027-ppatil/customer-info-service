@@ -3,7 +3,10 @@ package com.one.abc.customer.entity;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -20,7 +23,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "T_Customer") 
+@Table(name = "T_customer") 
 public class Customer {
 	
 	 
@@ -31,16 +34,17 @@ public class Customer {
 	private long id; 
  
 	
-	@Column(name = "MobileNumber", unique = true)
+	@Column(name = "mobilenumber", unique = true)
 	private String mobileNumber;
 	
-	@Column(name = "FirstName")
+	@Column(name = "firstname")
 	private String firstName;
 	
-	@Column(name = "LastName")
+	@Column(name = "lastname")
 	private String lastName;
 	
-	@Column(name = "DOB")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "dob")
 	private Date dateOfBirth;
 	
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -52,26 +56,26 @@ public class Customer {
     @JsonManagedReference
       private List<LoanType> loanType;
 	
-	@Column(name = "PanNumber")
+	@Column(name = "pannumber")
 	private String panNumber;
 	
-	@Column(name = "AdharNumber")
-	private String adharNumber;
+	@Column(name = "aadharnumber")
+	private String aadharNumber;
 	
-	@Column(name = "Email")
+	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "Gender")
+	@Column(name = "gender")
 	private String gender;
 	
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference 
 	private List<Address> address;
 	
-	@Column(name = "Landmark")
+	@Column(name = "landmark")
 	private String landmark;
 	
-	@Column(name = "Pincode")
+	@Column(name = "pincode")
 	private String pincode;
 	 
 	
@@ -79,34 +83,36 @@ public class Customer {
     @JoinColumn(name="occupationId_id")
     private  OccupationType occupationType;
 	
-	@Column(name = "CompanyName")
+	@Column(name = "companyname")
 	private String companyName;
 	
-	@Column(name = "NriCustomer")
+	@Column(name = "nricustomer")
 	private boolean nriCustomer;
 	
-	@Column(name = "MonthlyIncome")
+	@Column(name = "monthlyincome")
 	private String monthlyIncome;
 	
-	@Column(name = "LoanAmount")
+	@Column(name = "loanamount")
 	private String loanAmount;
 	
-	@Column(name = "CreatedBy")
+	@Column(name = "Createdby")
 	private String createdBy;
 	
-	@Column(name = "CreatedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "createddate")
 	private Date createdDate;
 	
-	@Column(name = "ModifiedBy")
+	@Column(name = "modifiedby")
 	private String modifiedBy;
 	
-	@Column(name = "ModififedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "modififeddate")
 	private Date modififedDate;
 	
-	@Column(name = "Active")
+	@Column(name = "active")
 	private String active;
 	
-	@Column(name = "enableDHA")
+	@Column(name = "enabledha")
 	private String enableDHA;
 
 	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -165,12 +171,12 @@ public class Customer {
 		this.panNumber = panNumber;
 	}
 
-	public String getAdharNumber() {
-		return adharNumber;
+	public String getAadharNumber() {
+		return aadharNumber;
 	}
 
-	public void setAdharNumber(String adharNumber) {
-		this.adharNumber = adharNumber;
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
 	}
 
 	public String getEmail() {
@@ -281,6 +287,7 @@ public class Customer {
 	}
 
 	public void setDateOfBirth(Date dateOfBirth) {
+	 
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -342,7 +349,7 @@ public class Customer {
 	}
 
 	public Customer(long id, String mobileNumber, String firstName, String lastName, Date dateOfBirth,
-			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String adharNumber, String email,
+			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String aadharNumber, String email,
 			String gender, List<Address> address, String landmark, String pincode, OccupationType occupationType,
 			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdBy,
 			Date createdDate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
@@ -355,7 +362,7 @@ public class Customer {
 		this.kycCoustomer = kycCoustomer;
 		this.loanType = loanType;
 		this.panNumber = panNumber;
-		this.adharNumber = adharNumber;
+		this.aadharNumber = aadharNumber;
 		this.email = email;
 		this.gender = gender;
 		this.address = address;

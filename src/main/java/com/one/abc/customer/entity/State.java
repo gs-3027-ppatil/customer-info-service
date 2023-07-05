@@ -3,6 +3,7 @@ package com.one.abc.customer.entity;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,22 +24,24 @@ public class State {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "State")
+	@Column(name = "state")
 	private String state;
 
-	@Column(name = "Createdby")
+	@Column(name = "createdby")
 	private String createdby;
 
-	@Column(name = "Createddate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "createddate")
 	private Date createddate;
 
-	@Column(name = "ModifiedBy")
+	@Column(name = "modifiedby")
 	private String modifiedBy;
 
-	@Column(name = "ModififedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "modififeddate")
 	private Date modififedDate;
 
-	@Column(name = "Active")
+	@Column(name = "active")
 	private String active;
 
 	@ManyToOne(fetch = FetchType.LAZY)

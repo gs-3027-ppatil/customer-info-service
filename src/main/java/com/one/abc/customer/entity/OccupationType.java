@@ -2,6 +2,8 @@ package com.one.abc.customer.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,25 +34,27 @@ public class OccupationType {
 	 
 	
 	
-	@Column(name = "OccupationType")
+	@Column(name = "occupationType")
 	private String occupationType;
 
-	@Column(name = "State")
+	@Column(name = "state")
 	private String state;
 
-	@Column(name = "CreatedBy")
+	@Column(name = "createdBy")
 	private String createdBy;
 
-	@Column(name = "CreatedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "createdDate")
 	private Date createdDate;
 
-	@Column(name = "ModifiedBy")
+	@Column(name = "modifiedBy")
 	private String modifiedBy;
 
-	@Column(name = "ModifiedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "modifiedDate")
 	private Date modifiedDate;
 
-	@Column(name = "Active")
+	@Column(name = "active")
 	private String active;
 	
 	

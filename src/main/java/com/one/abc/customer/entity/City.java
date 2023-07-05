@@ -3,6 +3,7 @@ package com.one.abc.customer.entity;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,13 +30,15 @@ public class City {
 	@Column(name = "createdby")
 	private String createdby;
 
-	@Column(name = "createdDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "createddate")
 	private Date createdDate;
 
-	@Column(name = "modifiedBy")
+	@Column(name = "modifiedby")
 	private String modifiedBy;
 
-	@Column(name = "modififedDate")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "modififeddate")
 	private Date modififedDate;
 
 	@Column(name = "active")

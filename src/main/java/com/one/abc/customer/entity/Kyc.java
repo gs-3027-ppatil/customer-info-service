@@ -5,6 +5,7 @@ package com.one.abc.customer.entity;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,19 +36,20 @@ public class Kyc {
 	
 	 
 	
-	@Column(name = "PermanentAddress")
+	@Column(name = "permanentaddress")
 	private String permanentAddress;
 	
-	@Column(name = "DigilockerStatus")
+	@Column(name = "digilockerstatus")
 	private String digilockerStatus;
 	
-	@Column(name = "DigilockerCreatedDate")
+	@Column(name = "digilockercreateddate")
 	private String digilockerCreatedDate;
 	
-	@Column(name = "VideoKYC")
+	@Column(name = "videokyc")
 	private String videoKYC;
 	
-	@Column(name = "LastFetchedDT")
+	@JsonDeserialize(using = DateHandler.class)
+	@Column(name = "lastfetcheddt")
 	private Date lastFetchedDT;
 
 	
