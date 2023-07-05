@@ -20,25 +20,25 @@ public class PinMgt {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "currentMpin")
+	@Column(name = "CurrentMpin")
 	private String currentMpin;
 
-	@Column(name = "mpinExpiry")
+	@Column(name = "MpinExpiry")
 	private Date mpinExpiry;
 
-	@Column(name = "createdBy")
+	@Column(name = "CreatedBy")
 	private String createdBy;
 
-	@Column(name = "createdDate")
+	@Column(name = "CreatedDate")
 	private Date createdDate;
 	
-	@Column(name = "modifiedDate")
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
 
-	@Column(name = "modifiedBy")
+	@Column(name = "ModifiedBy")
 	private String modifiedBy;
 	
-	@Column(name = "active")
+	@Column(name = "Active")
 	private boolean active;
 
 	@OneToOne(cascade = CascadeType.ALL)
