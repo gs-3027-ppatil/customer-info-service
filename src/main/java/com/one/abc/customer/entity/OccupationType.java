@@ -21,37 +21,27 @@ public class OccupationType {
 	@SequenceGenerator(name = "OccupationType_seq_gen", sequenceName = "OccupationType_seq")
 	private int id;
 
+ 
 	
 	
-	//@ManyToOne(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "customer_id")
-	//@JsonBackReference
-  //  private Customer customer;
-	
-	//@OneToMany(mappedBy = "OccupationType", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	// @JsonManagedReference 
-	
-	 
-	
-	
-	@Column(name = "occupationType")
+	@Column(name = "occupationtype")
 	private String occupationType;
 
 	@Column(name = "state")
 	private String state;
 
-	@Column(name = "createdBy")
+	@Column(name = "createdby")
 	private String createdBy;
 
 	@JsonDeserialize(using = DateHandler.class)
-	@Column(name = "createdDate")
+	@Column(name = "createddate")
 	private Date createdDate;
 
-	@Column(name = "modifiedBy")
+	@Column(name = "modifiedby")
 	private String modifiedBy;
 
 	@JsonDeserialize(using = DateHandler.class)
-	@Column(name = "modifiedDate")
+	@Column(name = "modifiedbate")
 	private Date modifiedDate;
 
 	@Column(name = "active")
