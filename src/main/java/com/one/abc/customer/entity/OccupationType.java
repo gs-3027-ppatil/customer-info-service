@@ -39,7 +39,7 @@ public class OccupationType {
 
 	@Column(name = "modifiedby")
 	private String modifiedBy;
-
+	 
 	@JsonDeserialize(using = DateHandler.class)
 	@Column(name = "modifiedbate")
 	private Date modifiedDate;

@@ -106,9 +106,10 @@ public class Customer {
 	private String modifiedBy;
 	
 	@JsonDeserialize(using = DateHandler.class)
-	@Column(name = "modififeddate")
-	private Date modififedDate;
-	
+	@Column(name = "modifieddate")
+	private Date modifiedDate;
+	 
+	 
 	@Column(name = "active")
 	private String active;
 	
@@ -301,12 +302,12 @@ public class Customer {
 		this.createdDate = createdDate;
 	}
 
-	public Date getModififedDate() {
-		return modififedDate;
+	public Date getmodifiedDate() {
+		return modifiedDate;
 	}
 
-	public void setModififedDate(Date modififedDate) {
-		this.modififedDate = modififedDate;
+	public void setmodifieddate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
 	public PinMgt getMpin() {
@@ -352,7 +353,7 @@ public class Customer {
 			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String aadhaarNumber, String email,
 			String gender, List<Address> address, String landmark, String pincode, OccupationType occupationType,
 			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdBy,
-			Date createdDate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
+			Date createdDate, String modifiedBy, Date modifieddate, String active, String enableDHA, PinMgt mpin) {
 		super();
 		this.id = id;
 		this.mobileNumber = mobileNumber;
@@ -376,7 +377,7 @@ public class Customer {
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;
 		this.modifiedBy = modifiedBy;
-		this.modififedDate = modififedDate;
+		this.modifiedDate = modifiedDate;
 		this.active = active;
 		this.enableDHA = enableDHA;
 		this.mpin = mpin;

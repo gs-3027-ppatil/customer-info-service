@@ -40,7 +40,7 @@ public class State {
 	@JsonDeserialize(using = DateHandler.class)
 	@Column(name = "modifieddate")
 	private Date modifiedDate;
-
+	 
 	@Column(name = "active")
 	private String active;
 

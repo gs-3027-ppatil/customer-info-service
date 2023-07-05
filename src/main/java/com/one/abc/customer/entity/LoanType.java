@@ -46,6 +46,7 @@ public class LoanType {
 	@Column(name = "modifieddate")
 	private String modifiedDate;
 	
+	 
 	@Column(name = "active")
 	private String active;
 	

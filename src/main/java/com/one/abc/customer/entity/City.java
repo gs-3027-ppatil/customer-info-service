@@ -36,10 +36,10 @@ public class City {
 
 	@Column(name = "modifiedby")
 	private String modifiedBy;
-
+	 
 	@JsonDeserialize(using = DateHandler.class)
-	@Column(name = "modififeddate")
-	private Date modififedDate;
+	@Column(name = "modifieddate")
+	private Date modifiedDate;
 
 	@Column(name = "active")
 	private String active;
@@ -89,12 +89,12 @@ public class City {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public Date getModififedDate() {
-		return modififedDate;
+	public Date getmodifiedDate() {
+		return modifiedDate;
 	}
 
-	public void setModififedDate(Date modififedDate) {
-		this.modififedDate = modififedDate;
+	public void setmodifieddate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
 	public String getActive() {
@@ -118,7 +118,7 @@ public class City {
 		// TODO Auto-generated constructor stub
 	}
 
-	public City(long id, String city, String createdby, Date createdDate, String modifiedBy, Date modififedDate,
+	public City(long id, String city, String createdby, Date createdDate, String modifiedBy, Date modifiedDate,
 			String active, Address address) {
 		super();
 		this.id = id;
@@ -126,7 +126,7 @@ public class City {
 		this.createdby = createdby;
 		this.createdDate = createdDate;
 		this.modifiedBy = modifiedBy;
-		this.modififedDate = modififedDate;
+		this.modifiedDate = modifiedDate;
 		this.active = active;
 		this.address = address;
 	}
