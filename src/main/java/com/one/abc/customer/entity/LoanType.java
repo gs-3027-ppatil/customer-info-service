@@ -43,8 +43,8 @@ public class LoanType {
 	@Column(name = "modifiedby")
 	private String modifiedBy;
 	
-	@Column(name = "modififeddate")
-	private String modififedDate;
+	@Column(name = "modifieddate")
+	private String modifiedDate;
 	
 	@Column(name = "active")
 	private String active;
@@ -101,11 +101,11 @@ public class LoanType {
 	}
 
 	public String getModififedDate() {
-		return modififedDate;
+		return modifiedDate;
 	}
 
-	public void setModififedDate(String modififedDate) {
-		this.modififedDate = modififedDate;
+	public void setModifiedDate(String modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
 	public String getActive() {
@@ -122,7 +122,7 @@ public class LoanType {
 	}
 
 	public LoanType(long id, Customer customer, String loanType, String createdby, String createddate,
-			String modifiedBy, String modififedDate, String active) {
+			String modifiedBy, String modifiedDate, String active) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -130,7 +130,7 @@ public class LoanType {
 		this.createdby = createdby;
 		this.createddate = createddate;
 		this.modifiedBy = modifiedBy;
-		this.modififedDate = modififedDate;
+		this.modifiedDate = modifiedDate;
 		this.active = active;
 	}
 	

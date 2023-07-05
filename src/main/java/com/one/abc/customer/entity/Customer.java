@@ -59,8 +59,8 @@ public class Customer {
 	@Column(name = "pannumber")
 	private String panNumber;
 	
-	@Column(name = "aadharnumber")
-	private String aadharNumber;
+	@Column(name = "aadhaarnumber")
+	private String aadhaarNumber;
 	
 	@Column(name = "email")
 	private String email;
@@ -172,11 +172,11 @@ public class Customer {
 	}
 
 	public String getAadharNumber() {
-		return aadharNumber;
+		return aadhaarNumber;
 	}
 
-	public void setAadharNumber(String aadharNumber) {
-		this.aadharNumber = aadharNumber;
+	public void setAadhaarNumber(String aadhaarNumber) {
+		this.aadhaarNumber = aadhaarNumber;
 	}
 
 	public String getEmail() {
@@ -349,7 +349,7 @@ public class Customer {
 	}
 
 	public Customer(long id, String mobileNumber, String firstName, String lastName, Date dateOfBirth,
-			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String aadharNumber, String email,
+			List<Kyc> kycCoustomer, List<LoanType> loanType, String panNumber, String aadhaarNumber, String email,
 			String gender, List<Address> address, String landmark, String pincode, OccupationType occupationType,
 			String companyName, boolean nriCustomer, String monthlyIncome, String loanAmount, String createdBy,
 			Date createdDate, String modifiedBy, Date modififedDate, String active, String enableDHA, PinMgt mpin) {
@@ -362,7 +362,7 @@ public class Customer {
 		this.kycCoustomer = kycCoustomer;
 		this.loanType = loanType;
 		this.panNumber = panNumber;
-		this.aadharNumber = aadharNumber;
+		this.aadhaarNumber = aadhaarNumber;
 		this.email = email;
 		this.gender = gender;
 		this.address = address;
