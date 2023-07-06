@@ -8,4 +8,6 @@ public interface CustomerService {
 
 	public Customer getCustomer(Long customerId, String mobileNumber);
 
+	public Customer updateCustomerInfo(Customer customer);
+
 }

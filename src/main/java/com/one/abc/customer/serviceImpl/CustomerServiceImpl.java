@@ -1,5 +1,6 @@
 package com.one.abc.customer.serviceImpl;
 
+import java.util.Date;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,7 +8,6 @@ import java.util.regex.Pattern;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.one.abc.customer.entity.Customer;
@@ -24,8 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer saveCustomerInfo(Customer customer) {
 		try {
-			Customer returnCustomer = customerRepo.save(customer);
-			return returnCustomer;
+			customer.setCreatedDate(new Date());
+			return customerRepo.save(customer);
 		} catch (DataIntegrityViolationException e) {
 			e.printStackTrace();
 			throw new CustomException(1102, "Mobile number already present");
@@ -65,5 +65,44 @@ public class CustomerServiceImpl implements CustomerService {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public Customer updateCustomerInfo(Customer updateCustomerRequest) {
+		try {
+			String mobileNumber = updateCustomerRequest.getMobileNumber();
+			if (!Strings.isBlank(mobileNumber) && isValidMobileNumber(mobileNumber)) {
+				Optional<Customer> customer = customerRepo.findByMobileNumber(mobileNumber);
+				Customer customerFromDB = getCustomerFromDb(customer);
+				return updateDbCustomerInfo(updateCustomerRequest, customerFromDB);
+			} else {
+				throw new CustomException(1101, "Please provide valid Mobile number");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new CustomException(1103, e.getLocalizedMessage());
+		}
+	}
+
+	private Customer updateDbCustomerInfo(Customer updateCustomerRequest, Customer customerFromDB) {
+		if (Strings.isNotBlank(updateCustomerRequest.getFirstName())) {
+			customerFromDB.setFirstName(updateCustomerRequest.getFirstName());
+		}
+		if (Strings.isNotBlank(updateCustomerRequest.getLastName())) {
+			customerFromDB.setLastName(updateCustomerRequest.getLastName());
+		}
+		if (updateCustomerRequest.getDateOfBirth() != null) {
+			customerFromDB.setDateOfBirth(updateCustomerRequest.getDateOfBirth());
+		}
+		if (Strings.isNotBlank(updateCustomerRequest.getEmail())) {
+			customerFromDB.setEmail(updateCustomerRequest.getEmail());
+		}
+		if (Strings.isNotBlank(updateCustomerRequest.getModifiedBy())) {
+			customerFromDB.setModifiedBy(updateCustomerRequest.getModifiedBy());
+		}
+		if (updateCustomerRequest.getmodifiedDate() != null) {
+			customerFromDB.setmodifiedDate(new Date());
+		}
+		return customerRepo.save(customerFromDB);
 	}
 }

@@ -306,7 +306,7 @@ public class Customer {
 		return modifiedDate;
 	}
 
-	public void setmodifieddate(Date modifiedDate) {
+	public void setmodifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 
